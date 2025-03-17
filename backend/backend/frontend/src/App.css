@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
+  max-width: 1240px;
+  margin: 60px auto;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.deal-container{
+  border: 1px solid black;
+  border-radius: 0 0 10px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-deal-heading{
+  border: 1px solid black;
+  text-align: center;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+}
+
+.deal-card{
+  text-align: center;
+  border: 1px solid black;
+  margin-top: 20px;
+
+}
+
+.deal-img{
+  padding: 20px;
+  background: #78faf680;
+}
+.deal-img img{
+  height: 100px;
+  object-fit: cover;
+  width: 250px;
+  object-position: top;
+}
+
+.deal-card-title{
+  color: #28d1cc;
+ font-size: 18px;
+}
+
+.sale-price{
+  font-size: 32px;
+}
+
+.original-price{
+ font-size: 18px;
+ color: #28d1cc;
+
+}
+ul li{
+  list-style: none;
 }
