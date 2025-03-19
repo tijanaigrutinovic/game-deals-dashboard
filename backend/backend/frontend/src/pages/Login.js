@@ -40,33 +40,27 @@ const Login = () => {
       console.error("Error:", error);
       setError("Error logging in. Please try again.");
     }
-};
+  };
 
   return (
     <div className="main-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-        {error && <div className="error">{error}</div>}  {/* error */}
-      </form>
-
-      <p>
-        Don't have an account? <Link to="/register">Register here</Link>
-      </p>
+    <h1 className='game-deal-heading p-2'>Game Deals</h1>
+      <div className="content-container d-flex flex-column align-items-center">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin} className="d-flex flex-column">
+          <label for="username">Username</label>
+          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+          <label for="password">Password</label>
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          <p>
+            Don't have an account? 
+            <Link to="/register" className="login-register-link"> Register </Link>
+            here
+          </p>
+          <button type="submit" className="submit-button">Login</button>
+          {error && <div className="error">{error}</div>}  
+        </form>
+      </div>
     </div>
   );
 };

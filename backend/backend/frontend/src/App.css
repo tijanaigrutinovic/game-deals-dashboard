@@ -4,15 +4,17 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
-.deal-container{
-  border: 1px solid black;
+.content-container{
+  border: 2px solid #212529;
   border-radius: 0 0 10px 10px;
+  padding: 20px;
 }
 
 .game-deal-heading{
-  border: 1px solid black;
+  border: 2px solid #212529;
   text-align: center;
   margin: 0;
   border-radius: 10px 10px 0 0;
@@ -21,15 +23,54 @@
 
 .deal-card{
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #212529;
   margin-top: 20px;
+  text-decoration: none;
+  max-width: 290px;
+  border-radius: 10px;
+  width: 100%;
+}
 
+.steam-bg{
+  background-color: #78faf680;
+}
+.gog-bg{
+  background-color:  #ffcc00;
+}
+
+.humble-bg{
+  background-color:  #ff4d94;
+}
+
+.default-bg{
+  background-color: #b3ffcc;
+}
+
+.steam-c{
+  color: #78faf680;
+}
+.gog-c{
+  color:  #ffcc00;
+}
+
+.humble-c{
+  color:   #ff4d94;
+}
+
+.default-c{
+  color: #b3ffcc;
+}
+
+.deal-card:hover{
+  transform: scale(1.05);
+  transition: all 300ms ease-in;
 }
 
 .deal-img{
-  padding: 20px;
-  background: #78faf680;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
 }
+
 .deal-img img{
   height: 100px;
   object-fit: cover;
@@ -38,19 +79,125 @@
 }
 
 .deal-card-title{
-  color: #28d1cc;
- font-size: 18px;
+  font-size: 18px;
+  text-wrap: wrap;
+  text-align: center;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
 }
 
 .sale-price{
   font-size: 32px;
+  color: black;
 }
 
 .original-price{
  font-size: 18px;
- color: #28d1cc;
-
 }
 ul li{
   list-style: none;
+}
+
+.login-text{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 160px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  display: none; 
+}
+
+.dropdown-item {
+  background-color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
+}
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.submit-button{
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.login-register-link{
+  text-decoration: none;
+}
+
+.detail-container{
+  border: 2px solid #212529;
+  border-radius: 10px;
+}
+
+.game-detail-heading{
+  border-bottom: 2px solid #212529;
+  width: 100%;
+}
+
+.game-detail-heading h1{
+  font-size: 32px;
+}
+
+.game-detail-content{
+  text-align: left;
+}
+
+.game-detail-content p{
+  font-weight: 700;
+}
+
+.game-detail-title{
+  font-size: 18px;
+  text-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+}
+
+.deal-game-img{
+  padding: 10px;
+}
+
+.deal-game-img img{
+  height: 100px;
+  object-fit: cover;
+  width: 300px;
+  object-position: top;
 }

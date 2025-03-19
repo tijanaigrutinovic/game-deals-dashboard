@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 
 const DealsList = () => {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const valid_store_ids = ['2', '7', '11'];
+  const valid_store_ids = ['13', '23', '34', '33'];
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/deals/')
@@ -39,14 +38,13 @@ const DealsList = () => {
       .map((deal) => (
         <li key={deal.deal_id} className="col-xl-4 col-12 d-flex justify-content-center align-items-center">
           <div className="deal-card">
-            <div className='deal-img'>
+          <div className={`deal-img ${deal.store_id === '13' ? 'steam-bg' : deal.store_id === '23' ? 'gog-bg' : 'default-bg'}`}>          
               <img src={deal.thumb_url} alt={deal.title} />
             </div>
             <div className='p-2'>
-              <p>{deal.store_name} ({deal.store_id})</p>
-              <p className='deal-card-title'>{deal.title}</p>
+              <p className={`deal-card-title ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>{deal.title}</p>
               <p className='sale-price'>{deal.sale_price}$</p>
-              <p className='original-price'>Instead of {deal.original_price}$</p>
+              <p className={`original-price ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>Instead of {deal.original_price}$</p>
             </div>
           </div>
         </li>

@@ -18,13 +18,21 @@ def get_tokens_for_user(user):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    repeat_password = serializers.CharField(write_only=True)
+
     class Meta:
         model = User
-        fields = ['username', 'password']
-        extra_kwargs = {'password': {'write_only': True}}  
+        fields = ['username', 'password', 'repeat_password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def validate(self, data):
+        if data['password'] != data['repeat_password']:
+            raise serializers.ValidationError("Passwords must match.")
+        return data
 
     def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)  
+        validated_data.pop('repeat_password', None)  
+        user = User.objects.create_user(**validated_data)
         return user
 
 class RegisterView(APIView):
