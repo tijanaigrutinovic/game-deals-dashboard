@@ -5,7 +5,7 @@ const DealsList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const valid_store_ids = ['13', '23', '34', '33'];
+  const valid_store_ids = ['1', '7', '11'];
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/deals/')
@@ -38,13 +38,13 @@ const DealsList = () => {
       .map((deal) => (
         <li key={deal.deal_id} className="col-xl-4 col-12 d-flex justify-content-center align-items-center">
           <div className="deal-card">
-          <div className={`deal-img ${deal.store_id === '13' ? 'steam-bg' : deal.store_id === '23' ? 'gog-bg' : 'default-bg'}`}>          
+          <div className={`deal-img ${deal.store_id === '1' ? 'steam-bg' : deal.store_id === '7' ? 'gog-bg' : deal.store_id === '11' ? 'humble-bg' : 'default-bg'}`}>          
               <img src={deal.thumb_url} alt={deal.title} />
             </div>
             <div className='p-2'>
-              <p className={`deal-card-title ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>{deal.title}</p>
+              <p className={`deal-card-title ${deal.store_id === '1' ? 'steam-c' : deal.store_id === '7' ? 'gog-c' : deal.store_id === '11' ? 'humble-c' : 'default-c'}`}>{deal.title}</p>
               <p className='sale-price'>{deal.sale_price}$</p>
-              <p className={`original-price ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>Instead of {deal.original_price}$</p>
+              <p className={`original-price ${deal.store_id === '1' ? 'steam-c' : deal.store_id === '7' ? 'gog-c' : deal.store_id === '11' ? 'humble-c' :'default-c'}`}>Instead of {deal.original_price}$</p>
             </div>
           </div>
         </li>

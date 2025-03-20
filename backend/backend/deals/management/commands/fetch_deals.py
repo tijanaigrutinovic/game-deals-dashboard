@@ -29,24 +29,24 @@ class Command(BaseCommand):
         store_data = stores_response.json()
         store_names = {store['storeID']: store['storeName'] for store in store_data}
 
-        url = 'https://www.cheapshark.com/api/1.0/deals'
-        response = fetch_data_with_retries(url)
+        valid_store_ids = {'1', '7', '11'}  # Lista validnih store ID-eva
+        
+        # Iteriraj kroz svaku prodavnicu i pozovi odgovarajući URL
+        for store_id in valid_store_ids:
+            url = f'https://www.cheapshark.com/api/1.0/deals?storeID={store_id}'
+            response = fetch_data_with_retries(url)
 
-        if not response:
-            print("Neuspešno preuzimanje dealova.")
-            return
+            if not response:
+                print(f"Neuspešno preuzimanje dealova za prodavnicu {store_id}.")
+                continue
 
-        deals = response.json()[:16]  
+            deals = response.json()[:16]  # Preuzmi samo prvih 16 dealova
 
-        valid_store_ids = {'13', '23', '34', '33'}  
-
-        for deal in deals:
-            store_id = str(deal.get('storeID'))
-
-            if store_id in valid_store_ids:
+            for deal in deals:
                 store_name = store_names.get(store_id, 'Nepoznata prodavnica')  
                 deal_id = deal.get('dealID', '')
 
+                # Ako deal već postoji, ne kreiraj ga ponovo
                 if not Deal.objects.filter(deal_id=deal_id).exists():
                     Deal.objects.create(
                         title=deal['title'],

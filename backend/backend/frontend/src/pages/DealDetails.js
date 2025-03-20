@@ -58,11 +58,11 @@ const DealDetails = () => {
             )}
           </div>
           <div className='pb-3 text-center w-100'>
-            <div className={`deal-game-img ${deal.store_id === '13' ? 'steam-bg' : deal.store_id === '23' ? 'gog-bg' : 'default-bg'}`}>          
+            <div className={`deal-game-img ${deal.store_id === '1' ? 'steam-bg' : deal.store_id === '7' ? 'gog-bg' : deal.store_id === '11' ? 'humble-bg' : 'default-bg'}`}>          
               <img src={deal.thumb_url} alt={deal.title} />
             </div>
             <div className='p-2'>
-              <p className={`game-detail-title mb-0 ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>{deal.title}</p>
+              <p className={`game-detail-title mb-0 ${deal.store_id === '1' ? 'steam-c' : deal.store_id === '7' ? 'gog-c' : deal.store_id === '11' ? 'humble-c' : 'default-c'}`}>{deal.title}</p>
               <p>on {deal.store_name}</p> 
             </div>
             <div className='game-detail-content p-2'>

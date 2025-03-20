@@ -5,14 +5,14 @@ const DealsListAuth = () => {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const [storeFilter, setStoreFilter] = useState("");
   const [priceRange, setPriceRange] = useState("");
   const [sortBy, setSortBy] = useState("price");
   const [sortOrder, setSortOrder] = useState("asc");
 
-  const valid_store_ids = ['13', '23', '34', '33'];
+  const valid_store_ids = ['1', '7', '11'];
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/deals/')
@@ -75,10 +75,9 @@ const DealsListAuth = () => {
       <div className="filters d-flex justify-content-center mb-3 flex-md-row flex-column">
         <select className="form-select mx-2 my-md-0 my-2" value={storeFilter} onChange={(e) => setStoreFilter(e.target.value)}>
           <option value="">All Stores</option>
-          <option value="13">Store 13</option>
-          <option value="23">Store 23</option>
-          <option value="34">Store 34</option>
-          <option value="33">Store 33</option>
+          <option value="1">Steam</option>
+          <option value="23">Gog</option>
+          <option value="34">Humble</option>
         </select>
 
         <select className="form-select mx-2 my-md-0 my-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
@@ -108,15 +107,14 @@ const DealsListAuth = () => {
         {visibleDeals.map((deal) => (
           <li key={deal.id} className="col-xl-3 col-12 d-flex justify-content-center align-items-center">
             <Link to={`/deals/${deal.id}`} className="deal-card">
-            <div className={`deal-img ${deal.store_id === '13' ? 'steam-bg' : deal.store_id === '23' ? 'gog-bg' : 'default-bg'}`}>          
+            <div className={`deal-img ${deal.store_id === '1' ? 'steam-bg' : deal.store_id === '7' ? 'gog-bg' : deal.store_id === '11' ? 'humble-bg' : 'default-bg'}`}>          
             <img src={deal.thumb_url} alt={deal.title} />
               </div>
               <div className='p-2'>
-                <p>{deal.store_name} ({deal.store_id})</p>
-                <p className={`deal-card-title ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>{deal.title}</p>
+                <p className={`deal-card-title ${deal.store_id === '1' ? 'steam-c' : deal.store_id === '7' ? 'gog-c' : deal.store_id === '11' ? 'humble-c' : 'default-c'}`}>{deal.title}</p>
                 <p className='sale-price'>{deal.sale_price}$</p>
-                <p className={`original-price ${deal.store_id === '13' ? 'steam-c' : deal.store_id === '23' ? 'gog-c' : 'default-c'}`}>Instead of {deal.original_price}$</p>
-              </div>
+                <p className={`original-price ${deal.store_id === '1' ? 'steam-c' : deal.store_id === '7' ? 'gog-c' : deal.store_id === '11' ? 'humble-c' :'default-c'}`}>Instead of {deal.original_price}$</p>
+                </div>
             </Link>
           </li>
         ))}
@@ -124,7 +122,7 @@ const DealsListAuth = () => {
 
       {visibleCount < sortedDeals.length && (
         <div className="text-center mt-3">
-          <button className="btn btn-outline-dark m-2 px-5 btn-lg" onClick={() => setVisibleCount(prev => prev + 3)}>
+          <button className="btn btn-outline-dark m-2 px-5 btn-lg" onClick={() => setVisibleCount(prev => prev + 8)}>
             Load More
           </button>
         </div>
