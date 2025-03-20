@@ -76,8 +76,8 @@ const DealsListAuth = () => {
         <select className="form-select mx-2 my-md-0 my-2" value={storeFilter} onChange={(e) => setStoreFilter(e.target.value)}>
           <option value="">All Stores</option>
           <option value="1">Steam</option>
-          <option value="23">Gog</option>
-          <option value="34">Humble</option>
+          <option value="7">Gog</option>
+          <option value="11">Humble</option>
         </select>
 
         <select className="form-select mx-2 my-md-0 my-2" value={priceRange} onChange={(e) => setPriceRange(e.target.value)}>
