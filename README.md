@@ -59,7 +59,12 @@ A web application that shows the most interesting game deals on Steam, GOG, and 
     python manage.py fetch_deals
     ```
 
-7. **Run the Django server:**
+7. **Run tests:**
+    ```bash
+    python manage.py test
+    ```
+
+8. **Run the Django server:**
     ```bash
     python manage.py runserver
     ```
