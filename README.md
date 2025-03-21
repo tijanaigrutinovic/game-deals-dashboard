@@ -34,12 +34,17 @@ A web application that shows the most interesting game deals on Steam, GOG, and 
     ```bash
     sudo apt update
     sudo apt install python3 python3-venv python3-pip
+    python3 --version
+    sudo ln -sf /usr/bin/python3 /usr/bin/python
+    python --version
+
+
     ```
 
 3. **Create and activate the virtual environment:**
     ```bash
     cd backend
-    python3 -m venv venv
+    python -m venv venv
     source venv/bin/activate
     ```
 
@@ -50,6 +55,7 @@ A web application that shows the most interesting game deals on Steam, GOG, and 
 
 5. **Run migrations:**
     ```bash
+    cd .\backend\backend
     python manage.py makemigrations
     python manage.py migrate
     ```
@@ -77,6 +83,7 @@ A web application that shows the most interesting game deals on Steam, GOG, and 
 
 1. **Install Node.js and npm:**
     ```bash
+    open new terminal
     sudo apt update
     sudo apt install nodejs npm
     ```
@@ -89,7 +96,7 @@ A web application that shows the most interesting game deals on Steam, GOG, and 
 
 2. **Navigate to the frontend directory:**
     ```bash
-    cd backend/frontend
+    cd .\backend\backend\frontend\
     ```
 
 3. **Install dependencies:**
